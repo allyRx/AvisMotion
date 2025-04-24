@@ -30,4 +30,8 @@ public class ClientService {
     public Optional<Client> getClientById(Long id) {
         return clientRepository.findById(id);
     }
+
+    public void deleteClientById(Long id) {
+        clientRepository.deleteById(id);
+    }
 }
