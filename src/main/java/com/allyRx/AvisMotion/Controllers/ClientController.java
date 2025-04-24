@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -19,6 +21,12 @@ public class ClientController {
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public void createClient(@RequestBody Client client) {
         clientService.creer(client);
+    }
+
+    @GetMapping
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<Client> getClients(){
+        return  clientService.getClient();
     }
 
 }
