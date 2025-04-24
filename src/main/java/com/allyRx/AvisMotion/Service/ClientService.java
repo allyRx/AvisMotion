@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -13,12 +14,20 @@ public class ClientService {
 
     //injection de dependence
     private ClientRepository clientRepository;
+
     public void creer(Client client) {
-        clientRepository.save(client);
+        Client Exist = clientRepository.findByEmail(client.getEmail());
+          if (Exist == null) {
+              clientRepository.save(client);
+          }
+
     }
 
     public List<Client> getClient(){
-       return  clientRepository.findAll();
+        return  clientRepository.findAll();
     }
 
+    public Optional<Client> getClientById(Long id) {
+        return clientRepository.findById(id);
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -27,6 +28,11 @@ public class ClientController {
     @ResponseStatus(value = HttpStatus.OK)
     public List<Client> getClients(){
         return  clientService.getClient();
+    }
+
+    @GetMapping(path = "{id}" , produces = APPLICATION_JSON_VALUE)
+    public Optional<Client> getClientById(@PathVariable Long id) {
+        return clientService.getClientById(id);
     }
 
 }
