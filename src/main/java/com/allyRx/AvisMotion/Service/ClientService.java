@@ -34,4 +34,12 @@ public class ClientService {
     public void deleteClientById(Long id) {
         clientRepository.deleteById(id);
     }
+
+    public Client getOrCreateClient(Client client) {
+        Client ClientExist = clientRepository.findByEmail(client.getEmail());
+        if(ClientExist == null){
+            clientRepository.save(client);
+        }
+        return ClientExist;
+    }
 }
