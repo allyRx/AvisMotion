@@ -33,4 +33,10 @@ public class SentimentController {
     public Optional<Sentiment> getSentimentById(@PathVariable Long id) {
         return sentimentService.getSentimentById(id);
     }
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @DeleteMapping(path = "{id}")
+    public void deleteSentiment(@PathVariable Long id) {
+        sentimentService.deleteSentiment(id);
+    }
 }

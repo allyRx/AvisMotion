@@ -35,4 +35,7 @@ public class SentimentService {
     }
 
 
+    public void deleteSentiment(Long id) {
+        sentimentRepository.deleteById(id);
+    }
 }
