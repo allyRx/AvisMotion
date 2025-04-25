@@ -2,7 +2,6 @@ package com.allyRx.AvisMotion.Service;
 
 import com.allyRx.AvisMotion.Entity.Client;
 import com.allyRx.AvisMotion.Entity.Sentiment;
-import com.allyRx.AvisMotion.Repository.ClientRepository;
 import com.allyRx.AvisMotion.Repository.SentimentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
